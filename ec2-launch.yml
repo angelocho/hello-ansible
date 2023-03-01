@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: start an instance with a public IP address
+      amazon.aws.ec2_instance:
+        name: "Aws-ansible"
+        key_name: "clave-lucatic"
+        vpc_subnet_id: subnet-0f79bf7d4bc65f63b
+        instance_type: t2.micro
+        security_group: sg-0d2b1e710a2281426
+        network:
+          assign_public_ip: true
+        image_id: ami-0b752bf1df193a6c4
